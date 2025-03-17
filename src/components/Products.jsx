@@ -30,13 +30,13 @@ const Products = () => {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
-      <h1 className="text-2xl font-bold text-center my-6">Our Products</h1>
+    <div className="bg-background min-h-screen p-4">
+      <h1 className="text-3xl font-bold text-primary text-center my-6">Our Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div
             key={product.id}
-            className="relative bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow"
+            className="relative bg-card rounded-2xl shadow-lg p-4 hover:shadow-2xl transition-shadow"
           >
             <button
               className="absolute top-4 right-4 cursor-pointer"
@@ -50,13 +50,13 @@ const Products = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill={
                   wishlistItems.some((item) => item.id === product.id)
-                    ? "red"
+                    ? "#ef4444"
                     : "none"
                 }
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 text-red-500 hover:scale-110 transition-transform"
+                className="w-7 h-7 text-accent hover:scale-110 transition-transform"
               >
                 <path
                   strokeLinecap="round"
@@ -65,18 +65,21 @@ const Products = () => {
                 />
               </svg>
             </button>
+  
             <img
               src={product.image}
               alt={product.title}
-              className="w-full h-48 object-cover rounded-lg"
+              className="w-full h-52 object-cover object-center rounded-xl border border-gray-200"
             />
-            <h2 className="text-lg font-medium mt-4 line-clamp-2">{product.title}</h2>
-            <p className="text-gray-500 mt-2">${product.price}</p>
-
-            {/* Add to Cart button */}
+  
+            <h2 className="text-lg font-semibold mt-4 text-textPrimary line-clamp-2">
+              {product.title}
+            </h2>
+            <p className="text-textSecondary mt-2">${product.price}</p>
+  
             <button
               onClick={() => addToCart(product)}
-              className="mt-4 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
+              className="mt-4 w-full bg-accent text-white py-2 rounded-xl hover:bg-green-600 transition"
             >
               Add to Cart
             </button>

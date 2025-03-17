@@ -12,10 +12,10 @@ const Navbar = () => {
     <nav className="rubik-vinyl-regular bg-sky-200 shadow-md ">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
-        <div className="text-xl font-bold text-gray-800">E-Shop</div>
+        <div className="text-2xl font-bold  text-gray-900">E-Shop</div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-6 font-bold">
           <Link to="/" className="text-gray-700 hover:text-gray-900">
             Home
           </Link>

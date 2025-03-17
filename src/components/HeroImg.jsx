@@ -38,19 +38,19 @@ const HeroCarousel = () => {
   return loading ? (
     <div className="flex items-center justify-center font-semibold">Loading...</div>
   ) : (
-    <div className="relative w-full h-[400px] max-w-lg mx-auto">
-      {/* Render images dynamically from the products array */}
-      {products.map((product, index) => (
-        <img
-          key={index}
-          src={product.image} // API image URL
-          alt={`Product ${index + 1}`} // Alt text for the image
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`} // Ensure the image covers its container without stretching
-        />
-      ))}
-    </div>
+    <div className="relative w-full h-[400px] max-w-lg mx-auto overflow-hidden rounded-lg">
+    {/* Render images dynamically from the products array */}
+    {products.map((product, index) => (
+      <img
+        key={index}
+        src={product.image} // API image URL
+        alt={`Product ${index + 1}`} // Alt text for the image
+        className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${
+          index === currentIndex ? "opacity-100" : "opacity-0"
+        }`} // Ensure the image covers its container without stretching
+      />
+    ))}
+  </div>
   );
 };
 
