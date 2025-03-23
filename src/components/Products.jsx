@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useWishlist } from "./WishlistProvider";
 import { useCart } from "./CardCOntext"; // Import useCart
-import axios from "axios"; // Axios for making API calls
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -26,18 +25,25 @@ const Products = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center mt-8">Loading Products...</div>;
+    return (
+      <div className="text-center mt-8 text-lg font-semibold text-gray-700">
+        Loading Products...
+      </div>
+    );
   }
 
   return (
-    <div className="bg-background min-h-screen p-4">
-      <h1 className="text-3xl font-bold text-primary text-center my-6">Our Products</h1>
+    <div className="bg-gray-100 min-h-screen p-6">
+      <h1 className="text-3xl font-bold text-gray-900 text-center my-8">
+        Our Products
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div
             key={product.id}
-            className="relative bg-card rounded-2xl shadow-lg p-4 hover:shadow-2xl transition-shadow"
+            className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden border border-gray-200"
           >
+            {/* Wishlist Button */}
             <button
               className="absolute top-4 right-4 cursor-pointer"
               onClick={() =>
@@ -56,7 +62,7 @@ const Products = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-7 h-7 text-accent hover:scale-110 transition-transform"
+                className="w-6 h-6 text-red-500 hover:scale-110 transition-transform"
               >
                 <path
                   strokeLinecap="round"
@@ -65,24 +71,39 @@ const Products = () => {
                 />
               </svg>
             </button>
-  
-            <img
-              src={product.image}
-              alt={product.title}
-              className="w-full h-52 object-cover object-center rounded-xl border border-gray-200"
-            />
-  
-            <h2 className="text-lg font-semibold mt-4 text-textPrimary line-clamp-2">
-              {product.title}
-            </h2>
-            <p className="text-textSecondary mt-2">${product.price}</p>
-  
-            <button
-              onClick={() => addToCart(product)}
-              className="mt-4 w-full bg-accent text-white py-2 rounded-xl hover:bg-green-600 transition"
-            >
-              Add to Cart
-            </button>
+
+            {/* Product Image */}
+            <div className="w-full h-52 bg-gray-100 flex items-center justify-center border-b border-gray-200">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-40 h-40 object-contain"
+              />
+            </div>
+
+            <div className="p-4">
+              <h2 className="text-lg font-semibold text-gray-800 line-clamp-2">
+                {product.title}
+              </h2>
+              <p className="text-gray-600 mt-2">${product.price}</p>
+
+              {/* Add to Cart Button */}
+              {cartItems.some((item) => item.id === product.id) ? (
+                <button
+                  onClick={() => removeFromCart(product.id)}
+                  className="mt-4 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
+                >
+                  Remove from Cart
+                </button>
+              ) : (
+                <button
+                  onClick={() => addToCart(product)}
+                  className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+                >
+                  Add to Cart
+                </button>
+              )}
+            </div>
           </div>
         ))}
       </div>
