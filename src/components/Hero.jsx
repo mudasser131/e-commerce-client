@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="bg-sky-100 h-[90%]" >
+    <section className="bg-gradient-to-br from-blue-900 to-blue-700 h-[90%]">
       <div className="container mx-auto px-4 py-16 flex flex-col-reverse md:flex-row items-center">
         {/* Text Content */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold text-yellow-600 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-yellow-500 leading-tight">
             Shop the Latest Trends
           </h1>
-          <p className="mt-4 text-gray-700">
+          <p className="mt-4 text-gray-200">
             Discover the best deals on the newest arrivals. Upgrade your
             wardrobe today!
           </p>
@@ -24,7 +24,7 @@ const Hero = () => {
             </Link>
             <a
               href="#"
-              className="ml-4 px-6 py-3 bg-sky-200 text-sky-900 font-semibold rounded-lg shadow-md hover:bg-sky-300 transition"
+              className="ml-4 px-6 py-3 bg-blue-200 text-blue-900 font-semibold rounded-lg shadow-md hover:bg-blue-300 transition"
             >
               Learn More!
             </a>
