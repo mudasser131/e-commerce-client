@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-900 to-blue-700 h-[90%]">
+    <section className="bg-gradient-to-br from-blue-920 to-blue-700 h-[90%]">
       <div className="container mx-auto px-4 py-16 flex flex-col-reverse md:flex-row items-center">
         {/* Text Content */}
         <div className="w-full md:w-1/2 text-center md:text-left">
