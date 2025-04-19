@@ -3,7 +3,7 @@ import React, { useState, createContext, useContext } from "react";
 // Create and export the context
 export const CartContext = createContext();
 
-// Custom hook for using cart context
+// Custom hook for using cart context.
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
